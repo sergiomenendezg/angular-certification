@@ -1,0 +1,28 @@
+<h1>{{ 'step1.title' | translate }}</h1>
+<mat-form-field>
+  <mat-label>{{ 'common.model' | translate}}</mat-label>
+  <mat-select 
+    id="modelSelect"
+    [value]="selectedCode" 
+    (valueChange)="onModelChange($event)">
+    <mat-option>None</mat-option>
+    @for (model of (apiService.models$ | async); track model) {
+      <mat-option [value]="model.code">{{model.description}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<br/>
+@if (configuratorService.model) {
+  <mat-form-field>
+    <mat-label>{{ 'common.color' | translate }}</mat-label>
+    <mat-select 
+      id="colorSelect"
+      [value]="configuratorService.color" 
+      (valueChange)="onColorChange($event)">
+      <mat-option>None</mat-option>
+      @for (color of configuratorService.model.colors; track color) {
+        <mat-option [value]="color">{{color.description}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+}

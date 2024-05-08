@@ -1,0 +1,45 @@
+<!-- <mat-tab-group>
+  <mat-tab [label]="'home.step1' | translate" 
+    id="step1">
+    <ng-template matTabContent>
+      <mat-card>
+        <mat-card-content><app-step1 /></mat-card-content>
+      </mat-card>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab [label]="'home.step2' | translate" 
+    [disabled]='!configuratorService.model || !configuratorService.color'
+    id="step2"> 
+    <ng-template matTabContent>
+      <mat-card>
+        <mat-card-content><app-step2 /></mat-card-content>
+      </mat-card>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab [label]="'home.step3' | translate"
+    [disabled]='!configuratorService.config' 
+    id="step3"> 
+    <ng-template matTabContent>
+      <mat-card>
+        <mat-card-content><app-step3 /></mat-card-content>
+      </mat-card>
+    </ng-template>
+  </mat-tab>
+  
+</mat-tab-group> -->
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  @for (link of links; track link; let idx = $index) {
+    <a mat-tab-link
+     [routerLink]="link.link"
+      [disabled]="isDisabled(idx)"
+      (click)="activeLink = link.link"
+      [active]="activeLink == link.link"> {{link.label}} </a>
+  }
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+
+<app-preview />

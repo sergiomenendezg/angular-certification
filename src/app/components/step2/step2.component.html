@@ -1,0 +1,27 @@
+<h1>{{ 'step2.title' | translate }}</h1>
+
+<mat-form-field>
+  <mat-label>{{ 'step2.config' | translate }}</mat-label>
+  <mat-select [value]="configuratorService.config?.id" id="configSelect" (valueChange)="onConfigChange($event)">
+    <mat-option>None</mat-option>
+    @for (config of (apiService.options$ | async)?.configs; track config) {
+      <mat-option [value]="config.id">{{config.description}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<br />
+<mat-label>{{ configToString() }}</mat-label>
+<br />
+<mat-label>{{ 'step2.towHitch' | translate }}</mat-label>
+<mat-checkbox 
+  id="includeTow"
+  [disableRipple]="true"
+  (click)="$event.preventDefault()"
+  [checked]="configuratorService.towHitch"/>
+<br />
+
+<mat-label>{{ 'step2.yoke' | translate }}</mat-label>
+<mat-checkbox  [disableRipple]="true"
+  id="includeYoke"
+  (click)="$event.preventDefault()" [checked]="configuratorService.yoke"
+  />

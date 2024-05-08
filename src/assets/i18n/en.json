@@ -1,0 +1,27 @@
+{
+  "common": {
+    "model": "Model",
+    "color": "Color"
+  },
+  "home": {
+    "step1": "Step 1",
+    "step2": "Step 2",
+    "step3": "Step 3"
+  },
+  "step1": {
+    "title": "Step 1: Choose your model and color"
+  },
+  "step2": {
+    "title": "Step 2: Select your config and options",
+    "config": "Config",
+    "towHitch": "Tow Hitch?",
+    "yoke": "Yoke steering wheel?"
+  },
+  "step3": {
+    "title": "Step 3: Summary",
+    "modelDescription": "Your {{modelDescription}}",
+    "towHitchPackage": "Tow Hitch Package",
+    "yokePackage": "Yoke Package",
+    "total": "Total Cost"
+  }
+}
