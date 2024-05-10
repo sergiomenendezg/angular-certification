@@ -15,13 +15,13 @@
 <mat-label>{{ 'step2.towHitch' | translate }}</mat-label>
 <mat-checkbox 
   id="includeTow"
-  [disableRipple]="true"
-  (click)="$event.preventDefault()"
+  (change)="setTowHitch($event.checked)"
   [checked]="configuratorService.towHitch"/>
 <br />
 
 <mat-label>{{ 'step2.yoke' | translate }}</mat-label>
 <mat-checkbox  [disableRipple]="true"
   id="includeYoke"
-  (click)="$event.preventDefault()" [checked]="configuratorService.yoke"
+  (change)="setYoke($event.checked)"
+   [checked]="configuratorService.yoke"
   />
